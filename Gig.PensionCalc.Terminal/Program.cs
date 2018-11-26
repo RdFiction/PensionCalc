@@ -20,8 +20,8 @@ namespace Gig.PensionCalc.Terminal
             }
             var result = string.Format("{0}, n=тебе еще работать {1} лет",
                 name,
-                (pensionage - age);
-                )
+                pensionage - age
+                );
 
             Console.WriteLine(result);
             Console.ReadKey();
