@@ -10,7 +10,20 @@ namespace Gig.PensionCalc.Terminal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Мир");
+            var name = args[0];
+            var age = long.Parse(args[1]);
+            var isWoman = bool.Parse(args[2]);
+            var pensionage = 65;
+            if (isWoman)
+            {
+                pensionage = 63;
+            }
+            var result = string.Format("{0}, n=тебе еще работать {1} лет",
+                name,
+                (pensionage - age);
+                )
+
+            Console.WriteLine(result);
             Console.ReadKey();
         }
     }
