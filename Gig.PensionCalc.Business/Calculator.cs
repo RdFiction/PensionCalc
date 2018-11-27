@@ -14,7 +14,7 @@ namespace Gig.PensionCalc.Business
         {
             var result = new PensionInfo();
 
-            var age = userinfo.Sex = Sex.Woman ? 63 : 65;
+            var age = userinfo.Sex == Sex.Woman ? 63 : 65;
 
             var years = userinfo.BirthDay.AddYears(age) - DateTime.Today;
 
