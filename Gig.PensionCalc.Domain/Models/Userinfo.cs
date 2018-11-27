@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Gig.PensionCalc.Domain.NewFolder1
+namespace Gig.PensionCalc.Domain
 {
-    public class Userinfo
+    public class UserInfo
     {
         /// <summary>
         /// ФИО
@@ -23,6 +23,14 @@ namespace Gig.PensionCalc.Domain.NewFolder1
         /// Места работы
         /// </summary>
         public Work[] Work { get; set; }
+
+        /// <summary>
+        /// Количество лет
+        /// </summary>
+       public TimeSpan Age
+       {
+            get => DateTime.Today - BirthDay;
+       }
 
     }
 }

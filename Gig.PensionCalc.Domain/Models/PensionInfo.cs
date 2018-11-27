@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gig.PensionCalc.Domain.Models
+namespace Gig.PensionCalc.Domain
 {
     /// <summary>
     /// Информация о пенсии
@@ -20,6 +20,9 @@ namespace Gig.PensionCalc.Domain.Models
         /// Стаж
         /// </summary>
         public TimeSpan ExpirienceYears { get; set; }
+
+        public DateTime PensionDate { get; set; }
+       
 
     }
 }

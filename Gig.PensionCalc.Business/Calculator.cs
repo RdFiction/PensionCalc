@@ -1,22 +1,24 @@
-﻿using Gig.PensionCalc.Domain.Models;
-using Gig.PensionCalc.Domain.NewFolder1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gig.PensionCalc.Domain;
+
 
 namespace Gig.PensionCalc.Business
 {
     public class Calculator
     {
-        public PensionInfo Calc(Userinfo userinfo)
+        public PensionInfo Calc(UserInfo userInfo)
         {
             var result = new PensionInfo();
 
-            var age = userinfo.Sex == Sex.Woman ? 63 : 65;
+            var age = userInfo.Sex == Sex.Woman ? 63 : 65;
 
-            var years = userinfo.BirthDay.AddYears(age) - DateTime.Today;
+            result.PensionDate = userInfo.BirthDay.AddYears(age);
+
+            var years = result.PensionDate - DateTime.Today;
 
             result.RemainingYears = years;
 

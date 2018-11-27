@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gig.PensionCalc.Domain.NewFolder1
+namespace Gig.PensionCalc.Domain
 {
 
     /// <summary>
