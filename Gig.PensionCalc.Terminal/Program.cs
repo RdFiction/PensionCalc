@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gig.PensionCalc.Business;
+using Gig.PensionCalc.Domain.NewFolder1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +14,28 @@ namespace Gig.PensionCalc.Terminal
         {
             Console.WriteLine("Калькулятор пенсии");
 
-            var name = args[0];
-            var age = long.Parse(args[1]);
-            var isWoman = bool.Parse(args[2]);
-            var pensionage = 65;
-            if (isWoman)
-            {
-                pensionage = 63;
-            }
-            var result = string.Format("{0}, тебе работать еще {1} лет",
-                name,
-                pensionage - age
-                );
+            #region MyRegion
 
-            //Console.WriteLine(result); 
+            #endregion //свернуть
+
+            var man = new Userinfo();
+            man.Name = name;
+            man.Sex = isWoman ? Sex.Woman : Sex.Man;
+            man.BirthDay = DateTime.Today.AddYears(-age);
+
+            var calc = new Calculator();
+            var pensioninfo = calc.Calc(man);
+
+            
+            //var tt = new TimeSpan(23, 2, 56, 34);
+
+            var result = $"{man.Name}, тебе работать еще примерно {pensioninfo.RemainingYears.TotalDays} дней";
+
+            Console.WriteLine(result);
 
             var now = 2018;
             Console.Write("Напишите имя: ");
-            string name2 = Console.ReadLine();
+            man.Name = Console.ReadLine();
 
             Console.Write("Напишите фамилию: ");
             string name3 = Console.ReadLine();

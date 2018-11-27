@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gig.PensionCalc.Business\Gig.PensionCalc.Business.csproj">
+      <Project>{AE6AFE7B-8C72-4092-BB6B-7520AD2D4F25}</Project>
+      <Name>Gig.PensionCalc.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gig.PensionCalc.Domain\Gig.PensionCalc.Domain.csproj">
+      <Project>{D7C36EBA-5478-4893-9808-C770B4CA507A}</Project>
+      <Name>Gig.PensionCalc.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
