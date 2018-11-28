@@ -3,15 +3,15 @@ using Gig.PensionCalc.Domain;
 
 namespace Gig.PensionCalc.Business.Rules
 {
-    public class BirthDay2020Rule : IPensionRule
+    public class TeacherRule : IPensionRule
     {
         public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
         {
-            if (userInfo.BirthDay.Year == 1959)
+            if (userInfo.Name == "Анна Николаевна")
 
             {
-                pensionInfo.RemainingYears = new DateTime(2020, 1, 1) - DateTime.Today;
-                pensionInfo.Info += "Успел родиться в 1959, выходи в 2020" + Environment.NewLine;
+                pensionInfo.RemainingYears = pensionInfo.RemainingYears.Add(new TimeSpan(-365 * 10, 0, 0, 0));
+                pensionInfo.Info += "Скидка учителям - 10 лет" + Environment.NewLine;
 
             }
 

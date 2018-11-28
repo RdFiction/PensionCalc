@@ -23,6 +23,8 @@ namespace Gig.PensionCalc.Domain
 
         public DateTime PensionDate { get; set; }
 
+        public string Info { get; set; }
+
         public override string ToString()
         {
             return $"Вам осталось работать {RemainingYears.TotalDays} лет.";

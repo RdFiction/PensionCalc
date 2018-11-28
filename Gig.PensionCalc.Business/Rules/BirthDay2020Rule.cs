@@ -7,7 +7,7 @@ namespace Gig.PensionCalc.Business.Rules
     {
         public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
         {
-            if (userInfo.BirthDay.Year == 1959)
+            if (userInfo.Sex == Sex.Man && userInfo.BirthDay.Year == 1959)
 
             {
                 pensionInfo.RemainingYears = new DateTime(2020, 1, 1) - DateTime.Today;
@@ -15,8 +15,15 @@ namespace Gig.PensionCalc.Business.Rules
 
             }
 
-            return pensionInfo;
+            if (userInfo.Sex == Sex.Woman && userInfo.BirthDay.Year == 1964)
 
+            {
+                pensionInfo.RemainingYears = new DateTime(2020, 1, 1) - DateTime.Today;
+                pensionInfo.Info += "Успела родиться в 1964, выходи в 2020" + Environment.NewLine;
+
+            }
+            return pensionInfo;
+        
         }
     }
 }

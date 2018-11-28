@@ -12,11 +12,12 @@ namespace Gig.PensionCalc.Business.Rules
     {
         public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
         {
-            var age = userInfo.Sex == Sex.Woman ? 63 : 65;
 
+            pensionInfo.PensionDate = userInfo.BirthDay.AddYears(65);
             var years = pensionInfo.PensionDate - DateTime.Today;
 
             pensionInfo.RemainingYears = years;
+            pensionInfo.Info += "Стандартный возраст выхода - 65 лет" + Environment.NewLine;
 
             return pensionInfo;
 

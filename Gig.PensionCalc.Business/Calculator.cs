@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Gig.PensionCalc.Business.Rules;
 using Gig.PensionCalc.Domain;
 
@@ -15,12 +12,16 @@ namespace Gig.PensionCalc.Business
 
         public Calculator()
         {
-            Rules = new List<IPensionRule>();
+            Rules = new List<IPensionRule>()
+            {
 
-            new DefaultRule();
-            new IsWomanRule();
-            new BirthDay1959Rule();
-            new TeacherRule();
+            new DefaultRule(),
+            new IsWomanRule(),
+            new BirthDay2020Rule(),
+            new TeacherRule(),
+            
+            };
+
         }
         
         public PensionInfo Calc(UserInfo userInfo)
@@ -32,13 +33,14 @@ namespace Gig.PensionCalc.Business
 
 
             //собрать все правила Rule
-            //Правила по полу
-            var sexRule = Rules.OfType<ISexRule> ();
-            //Все остальные правила
-            var otherRules = sex.Rules.Except(Rules);
-            //Правила по полу для текущего человека
-            var currentSexRules = sexRules.Where(rule => rule.Sex = userInfo.Sex).ToList;
 
+            //Правила по полу
+            var sexRules = Rules.OfType<ISexRule>();
+            //Все остальные правила
+            var otherRules = Rules.Except(sexRules);
+
+            //Правила по полу для текущего человека
+            var currentSexRules = sexRules.Where(rule => rule.Sex == userInfo.Sex);
 
 
             currentRules.AddRange(otherRules);
