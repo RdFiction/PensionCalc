@@ -22,7 +22,12 @@ namespace Gig.PensionCalc.Domain
         public TimeSpan ExpirienceYears { get; set; }
 
         public DateTime PensionDate { get; set; }
-       
+
+        public override string ToString()
+        {
+            return $"Вам осталось работать {RemainingYears.TotalDays} лет.";
+        }
+
 
     }
 }

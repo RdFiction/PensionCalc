@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gig.PensionCalc.Business.Rules;
 using Gig.PensionCalc.Domain;
 
 
@@ -10,22 +11,47 @@ namespace Gig.PensionCalc.Business
 {
     public class Calculator
     {
+        private IEnumerable<IPensionRule> Rules { get; set; }
+
+        public Calculator()
+        {
+            Rules = new List<IPensionRule>();
+
+            new DefaultRule();
+            new IsWomanRule();
+            new BirthDay1959Rule();
+            new TeacherRule();
+        }
+        
         public PensionInfo Calc(UserInfo userInfo)
         {
             var result = new PensionInfo();
 
-            var age = userInfo.Sex == Sex.Woman ? 63 : 65;
+            //Правила для текущего человека
+            var currentRules = new List<IPensionRule>();
 
-            result.PensionDate = userInfo.BirthDay.AddYears(age);
 
-            var years = result.PensionDate - DateTime.Today;
+            //собрать все правила Rule
+            //Правила по полу
+            var sexRule = Rules.OfType<ISexRule> ();
+            //Все остальные правила
+            var otherRules = sex.Rules.Except(Rules);
+            //Правила по полу для текущего человека
+            var currentSexRules = sexRules.Where(rule => rule.Sex = userInfo.Sex).ToList;
 
-            result.RemainingYears = years;
 
-            //собрать сен правила
-            //применить каждое правило к инфе
-            //результат должен быть сквозной 
-            //как все проверили - формируем результат в человеческом виде
+
+            currentRules.AddRange(otherRules);
+            currentRules.AddRange(currentSexRules);
+
+            //вот здесь должен быть цикл по жестким рулам (правила до остальных правил, выход по годам)
+
+            foreach (var rule in currentRules)
+            {
+                //применить каждое правило к инфе
+                //результат должен быть сквозной
+                result = rule.Apply(result, userInfo);
+            }
 
             return result;
 
