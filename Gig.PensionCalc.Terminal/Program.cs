@@ -37,7 +37,7 @@ namespace Gig.PensionCalc.Terminal
             var pensionInfo = calc.Calc(user);
 
             Console.Write(pensionInfo.Info);
-            Console.Write("Вы - {0} ({1}), родились в {2} году, вам {3} лет, \nВыход на пенсию в {4} году, Вам осталось работать {5} лет.", user.Name, user.Sex, user.BirthDay.ToShortDateString(), Math.Round(user.Age.TotalDays/365), pensionInfo.PensionDate.ToShortDateString(), Math.Round(pensionInfo.RemainingYears.TotalDays/365));
+            Console.Write("Вы - {0} ({1}), родились {2} году, вам {3} лет, \nВыход на пенсию {4} году, Вам осталось работать {5} лет.", user.Name, user.Sex, user.BirthDay.ToShortDateString(), Math.Round(user.Age.TotalDays/365), pensionInfo.PensionDate.ToShortDateString(), Math.Round(pensionInfo.RemainingYears.TotalDays/365));
             
             Console.ReadKey();
 

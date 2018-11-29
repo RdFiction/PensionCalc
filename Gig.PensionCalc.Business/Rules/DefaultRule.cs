@@ -8,7 +8,7 @@ using Gig.PensionCalc.Domain;
 
 namespace Gig.PensionCalc.Business.Rules
 {
-    public class DefaultRule : IPensionRule
+    public class DefaultRule : BaseRule
     {
         public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
         {
@@ -21,6 +21,11 @@ namespace Gig.PensionCalc.Business.Rules
 
             return pensionInfo;
 
+        }
+
+        protected override PensionInfo InternalApply(PensionInfo pensionInfo, UserInfo userInfo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

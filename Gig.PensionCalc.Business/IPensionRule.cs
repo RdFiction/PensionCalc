@@ -13,12 +13,25 @@ namespace Gig.PensionCalc.Business
     public interface IPensionRule
     {
         /// <summary>
+        /// Наименование
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        /// Порядок
+        /// </summary>
+        int Order { get; }
+
+
+        /// <summary>
         /// Применить правило
         /// </summary>
         /// <param name="pensionInfo">Информация о пенсии</param>
-        /// <param name="userinfo">Информация о человеке</param>
+
+        /// <param name="userInfo">Информация о человеке</param>
+
         /// <returns>Измененная информация о пенсии</returns>
-        PensionInfo Apply(PensionInfo pensionInfo, UserInfo userinfo);
+                PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo);
 
     }
 }

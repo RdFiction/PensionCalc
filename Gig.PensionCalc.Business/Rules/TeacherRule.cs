@@ -3,16 +3,18 @@ using Gig.PensionCalc.Domain;
 
 namespace Gig.PensionCalc.Business.Rules
 {
-    public class TeacherRule : IPensionRule
+    public class TeacherRule : BaseRule
     {
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
+        public override string Name => "Скидка учителям - 10 лет";
+
+        protected override PensionInfo InternalApply(PensionInfo pensionInfo, UserInfo userInfo)
+
         {
-            if (userInfo.Name == "Анна Николаевна")
-
+            if (userInfo.Name == "Анна")
             {
-                pensionInfo.RemainingYears = pensionInfo.RemainingYears.Add(new TimeSpan(-365 * 10, 0, 0, 0));
-                pensionInfo.Info += "Скидка учителям - 10 лет" + Environment.NewLine;
+                pensionInfo.RemainingYears = pensionInfo.RemainingYears.AddYears(-10);
 
+                pensionInfo.Info += $" * {Name} {Environment.NewLine}";
             }
 
             return pensionInfo;

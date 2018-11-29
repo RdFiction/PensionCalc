@@ -45,10 +45,14 @@
     <Compile Include="ISexRule.cs" />
     <Compile Include="IPensionRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleExtensions.cs" />
+    <Compile Include="Rules\BaseRule.cs" />
+    <Compile Include="Rules\MilitaryRule.cs" />
     <Compile Include="Rules\TeacherRule.cs" />
     <Compile Include="Rules\DefaultRule.cs" />
     <Compile Include="Rules\BirthDay2020Rule.cs" />
     <Compile Include="Rules\IsWomanRule.cs" />
+    <Compile Include="TimeSpanExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gig.PensionCalc.Domain\Gig.PensionCalc.Domain.csproj">

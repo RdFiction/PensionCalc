@@ -3,20 +3,17 @@ using Gig.PensionCalc.Domain;
 
 namespace Gig.PensionCalc.Business.Rules
 {
-    public class IsWomanRule : ISexRule
+    public class IsWomanRule : BaseRule, ISexRule
     {
         public Sex Sex => Sex.Woman;
 
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userinfo)
+        public override string Name => "Скидка дамам - 2 года";
 
+        protected override PensionInfo InternalApply(PensionInfo pensionInfo, UserInfo userInfo)
         {
+            pensionInfo.RemainingYears = pensionInfo.RemainingYears.AddYears(-2);
 
-            pensionInfo.RemainingYears = pensionInfo.RemainingYears.Add(new TimeSpan(-365 * 2, 0, 0, 0));
-            pensionInfo.PensionDate = DateTime.Today.Add(pensionInfo.RemainingYears);
-
-
-            pensionInfo.Info += "Скидка дамам - 2 года" + Environment.NewLine;
-
+            pensionInfo.Info += $" * {Name} {Environment.NewLine}";
 
             return pensionInfo;
 

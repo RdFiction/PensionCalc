@@ -12,25 +12,67 @@ namespace Gig.PensionCalc.Business
 
         public Calculator()
         {
-            Rules = new List<IPensionRule>()
+
+            Rules = new List<IPensionRule>();
+
+            var assembly = Assembly.GetExecutingAssembly();
+
+            var types = assembly.GetTypes();
+
+            foreach (var typ in types)
             {
+                Console.WriteLine($"{typ.Name}");
 
-            new DefaultRule(),
-            new IsWomanRule(),
-            new BirthDay2020Rule(),
-            new TeacherRule(),
-            
-            };
+                var interfaces = typ.GetInterfaces();
 
+                if (typ.IsInterface)
+                {
+                    Console.WriteLine($" - это интерфейс вообще-то");
+
+                    continue;
+                }
+
+                if (typ.IsAbstract)
+                {
+                    Console.WriteLine($" - это абстрактный класс вообще-то");
+
+                    continue;
+                }
+
+                var isPensionRule = false;
+
+                foreach (var intf in interfaces)
+                {
+                    Console.WriteLine($" - {intf.Name}");
+
+                    if (intf.Name == "IPensionRule")
+
+                    {
+                        isPensionRule = true;
+
+                        break;
+                    }
+
+                }
+
+                if (isPensionRule)
+
+                {
+                    Console.WriteLine($" - это пенсия");
+
+                    var rule = System.Activator.CreateInstance(typ);
+
+                    Rules.Add((IPensionRule)rule);
+                }
+            }
         }
-        
+       
         public PensionInfo Calc(UserInfo userInfo)
         {
             var result = new PensionInfo();
 
             //Правила для текущего человека
             var currentRules = new List<IPensionRule>();
-
 
             //собрать все правила Rule
 
@@ -48,7 +90,7 @@ namespace Gig.PensionCalc.Business
 
             //вот здесь должен быть цикл по жестким рулам (правила до остальных правил, выход по годам)
 
-            foreach (var rule in currentRules)
+            foreach (var rule in currentRules.OrderBy(cr => cr.Order))
             {
                 //применить каждое правило к инфе
                 //результат должен быть сквозной
