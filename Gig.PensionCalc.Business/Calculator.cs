@@ -2,6 +2,7 @@
 using System.Linq;
 using Gig.PensionCalc.Business.Rules;
 using Gig.PensionCalc.Domain;
+using System.Reflection;
 
 
 namespace Gig.PensionCalc.Business
@@ -12,6 +13,8 @@ namespace Gig.PensionCalc.Business
 
         public Calculator()
         {
+
+
             Rules = new List<IPensionRule>()
             {
 

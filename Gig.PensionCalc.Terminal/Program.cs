@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gig.PensionCalc.Domain;
-
+using Gig.PensionCalc.Business.Rules;
 
 namespace Gig.PensionCalc.Terminal
 {
@@ -13,8 +13,23 @@ namespace Gig.PensionCalc.Terminal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Калькулятор пенсии");
+           //// var assemly = Assembly.GetExecutingAssembly();
 
+
+           // var type = typeof(TeacherRule);
+
+           // Console.WriteLine(type.FullName);
+
+           // var props = type.GetProperties();
+           // foreach (var prop in props)
+           // { 
+           //     Console.WriteLine
+
+           // }
+
+
+            Console.WriteLine("Калькулятор пенсии");
+             
             #region MyRegion
 
             var user = new UserInfo();
