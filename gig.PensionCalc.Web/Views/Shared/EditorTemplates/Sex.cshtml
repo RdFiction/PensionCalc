@@ -1,0 +1,14 @@
+﻿@model Sex?
+@using Gig.PensionCalc.Domain
+
+<div class="custom-control custom-radio">
+    @Html.RadioButton("", Sex.Man, new { id = "Man", @class = "custom-control-input" })
+    <label class="custom-control-label" for="Man">Man</label>
+</div>
+
+<div class="custom-control custom-radio">
+    @Html.RadioButton("", Sex.Woman, new { id = "Woman", @class = "custom-control-input" })
+    <label class="custom-control-label" for="Woman">Woman</label>
+</div>
+
+@Html.RadioButton("", Sex.Unknown)

@@ -2,7 +2,7 @@
 
 namespace Gig.PensionCalc.Domain
 {
-    public class UserInfo
+    public class UserInfoModel
     {
         /// <summary>
         /// ФИО

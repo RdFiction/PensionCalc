@@ -29,4 +29,4 @@ namespace Gig.PensionCalc.Domain
         public double Money { get; set; }
 
     }
-}
+} 

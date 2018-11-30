@@ -5,7 +5,7 @@ namespace Gig.PensionCalc.Business.Rules
 {
     public class TeacherRule : IPensionRule
     {
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
+        public PensionInfo Apply(PensionInfo pensionInfo, UserInfoModel userInfo)
         {
             if (userInfo.Name == "Анна Николаевна")
 

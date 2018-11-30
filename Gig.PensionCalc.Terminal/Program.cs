@@ -32,7 +32,7 @@ namespace Gig.PensionCalc.Terminal
              
             #region MyRegion
 
-            var user = new UserInfo();
+            var user = new UserInfoModel();
 
             Console.Write("Напишите ФИО: ");
             user.Name = Console.ReadLine();

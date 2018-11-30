@@ -27,7 +27,7 @@ namespace Gig.PensionCalc.Business
 
         }
         
-        public PensionInfo Calc(UserInfo userInfo)
+        public PensionInfo Calc(UserInfoModel userInfo)
         {
             var result = new PensionInfo();
 

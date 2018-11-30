@@ -5,7 +5,7 @@ namespace Gig.PensionCalc.Business.Rules
 {
     public class BirthDay2020Rule : IPensionRule
     {
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
+        public PensionInfo Apply(PensionInfo pensionInfo, UserInfoModel userInfo)
         {
             if (userInfo.Sex == Sex.Man && userInfo.BirthDay.Year == 1959)
 

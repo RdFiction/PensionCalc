@@ -18,7 +18,7 @@ namespace Gig.PensionCalc.Business
         /// <param name="pensionInfo">Информация о пенсии</param>
         /// <param name="userinfo">Информация о человеке</param>
         /// <returns>Измененная информация о пенсии</returns>
-        PensionInfo Apply(PensionInfo pensionInfo, UserInfo userinfo);
+        PensionInfo Apply(PensionInfo pensionInfo, UserInfoModel userinfo);
 
     }
 }

@@ -7,7 +7,7 @@ namespace Gig.PensionCalc.Business.Rules
     {
         public Sex Sex => Sex.Woman;
 
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userinfo)
+        public PensionInfo Apply(PensionInfo pensionInfo, UserInfoModel userinfo)
 
         {
 

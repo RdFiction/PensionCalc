@@ -10,7 +10,7 @@ namespace Gig.PensionCalc.Business.Rules
 {
     public class DefaultRule : IPensionRule
     {
-        public PensionInfo Apply(PensionInfo pensionInfo, UserInfo userInfo)
+        public PensionInfo Apply(PensionInfo pensionInfo, UserInfoModel userInfo)
         {
 
             pensionInfo.PensionDate = userInfo.BirthDay.AddYears(65);
