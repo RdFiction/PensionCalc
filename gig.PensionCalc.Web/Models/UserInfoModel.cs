@@ -38,7 +38,7 @@ namespace gig.PensionCalc.Web.Models
         /// Места работы
         /// </summary>
         [Display(Name = "Опыт")]
-        public Work[] Work { get; set; }
+        public IList<Work> Work { get; set; }
 
         /// <summary>
         /// Количество лет
