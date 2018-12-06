@@ -139,12 +139,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PensionController.cs" />
+    <Compile Include="Extensions\ControllerExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfoModel.cs" />
+    <Compile Include="NHibernate\Impl\BaseRepository.cs" />
+    <Compile Include="NHibernate\Impl\WorkRepository.cs" />
+    <Compile Include="NHibernate\Impl\UserRepository.cs" />
+    <Compile Include="NHibernate\IRepository.cs" />
+    <Compile Include="NHibernate\IUserInfoRepository.cs" />
+    <Compile Include="NHibernate\IUserRepository.cs" />
+    <Compile Include="NHibernate\IWorkRepository.cs" />
+    <Compile Include="NHibernate\NHibernateHelper.cs" />
+    <Compile Include="NHibernate\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +171,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <EmbeddedResource Include="NHibernate\Mapping\UserInfo.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\Mapping\Work.hbm.xml" />
+    <EmbeddedResource Include="NHibernate\Mapping\User.hbm.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -192,7 +206,9 @@
     <Content Include="Views\Pension\Info.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Works.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

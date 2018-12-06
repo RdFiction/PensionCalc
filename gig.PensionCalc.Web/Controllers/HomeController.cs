@@ -11,6 +11,8 @@ namespace gig.PensionCalc.Web.Controllers
 {
     public class HomeController : Controller
     {
+        IWorkRepository WorkRepository { get; set; }
+
         public ActionResult Index()
         {
             ISession session = NHibernateHelper.GetCurrentSession();
@@ -34,6 +36,11 @@ namespace gig.PensionCalc.Web.Controllers
 
         public ActionResult About()
         {
+
+            WorkRepository.FindByUser();
+
+            ViewBag.Works = works;
+
             ViewBag.Message = "Your application description page.";
 
             return View();

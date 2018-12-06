@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+    namespace="Gig.PensionCalc.Domain" assembly="Gig.PensionCalc.Domain">
+
+  <class name="Work" table="[Work]">
+
+
+    <id name="Id">
+      <generator class="native" />
+    </id>
+
+    <property name="PeriodStart" />
+
+    <property name="PerionEnd" />
+
+
+    <property name="Money" />
+
+    <many-to-one name="Worker" class="UserInfo" column="UserInfoId"/>
+
+  </class>
+
+</hibernate-mapping>

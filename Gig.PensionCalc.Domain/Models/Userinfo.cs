@@ -2,32 +2,34 @@
 
 namespace Gig.PensionCalc.Domain
 {
-    public class UserInfoModel
+    public class UserInfoModel : IEntity
     {
+
+        public virtual long Id { get; set; }
         /// <summary>
         /// ФИО
         /// </summary>
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// Дата рождения
         /// </summary>
-        public DateTime BirthDay { get; set; }
+        public virtual DateTime BirthDay { get; set; }
 
         /// <summary>
         /// Пол
         /// </summary>
-        public Sex Sex { get; set; }
+        public virtual Sex Sex { get; set; }
 
         /// <summary>
         /// Места работы
         /// </summary>
-        public Work[] Work { get; set; }
+        public virtual Work[] Work { get; set; }
 
         /// <summary>
         /// Количество лет
         /// </summary>
-       public TimeSpan Age
+       public virtual TimeSpan Age
        {
             get => DateTime.Today - BirthDay;
        }

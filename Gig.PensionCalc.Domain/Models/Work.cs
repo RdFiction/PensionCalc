@@ -6,8 +6,13 @@ namespace Gig.PensionCalc.Domain
     /// <summary>
     /// Информация о месте работы
     /// </summary>
-    public class Work
+    public class Work : IEntity
     {
+        /// <summary>
+        /// Идентификатор
+        /// </summary>
+        public long Id { get; set; }
+
         /// <summary>
         /// Дата трудоустройства на работу
         /// </summary>

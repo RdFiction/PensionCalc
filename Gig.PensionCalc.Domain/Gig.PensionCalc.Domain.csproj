@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\PensionInfo.cs" />
     <Compile Include="Models\Sex.cs" />
     <Compile Include="Models\Userinfo.cs" />
