@@ -33,9 +33,9 @@
     var i = Array.IndexOf(List, item)
     <tr>
         <td>
-            ////////Изменить Item на Model[i]
+            @*////////Изменить Item на Model[i]*@
 
-            @Html.EditorFor(modelItem => item.PeriodStart)
+            @Html.EditorFor(modelItem => item.PeriodStart) 
         </td>
         <td>
             @Html.EditorFor(modelItem => item.PeriodEnd)
